@@ -145,6 +145,9 @@ public class DataBaseManipulations {
         }
         assertTrue(Arrays.toString(allRows.get(1)).contains("yellow"), "Second added row is yellow car");
         System.out.println("Assertion passed - car is yellow");
+
+        selectConnection.close();
+        selectStatement.close();
     }
 
     public void updateTable() throws SQLException {
@@ -369,14 +372,14 @@ public class DataBaseManipulations {
     public static void main(String[] args) throws SQLException {
         DataBaseManipulations dataBaseManipulations = new DataBaseManipulations();
         dataBaseManipulations.createDatabase();
-        dataBaseManipulations.createTable();
-        dataBaseManipulations.insertIntoTable();
-        dataBaseManipulations.assertAddedInformation();
-        dataBaseManipulations.updateTable();
-        dataBaseManipulations.assertAddedCarIsOrange();
-        dataBaseManipulations.deleteFromTable();
-        dataBaseManipulations.assertRowDeleted();
-        dataBaseManipulations.dropTable();
-        dataBaseManipulations.dropDatabase();
+//        dataBaseManipulations.createTable();
+//        dataBaseManipulations.insertIntoTable();
+//        dataBaseManipulations.assertAddedInformation();
+//        dataBaseManipulations.updateTable();
+//        dataBaseManipulations.assertAddedCarIsOrange();
+//        dataBaseManipulations.deleteFromTable();
+//        dataBaseManipulations.assertRowDeleted();
+//        dataBaseManipulations.dropTable();
+//        dataBaseManipulations.dropDatabase();
     }
 }

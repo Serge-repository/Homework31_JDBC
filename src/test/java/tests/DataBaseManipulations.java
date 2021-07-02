@@ -208,6 +208,9 @@ public class DataBaseManipulations {
         }
         assertTrue(Arrays.toString(allRows.get(1)).contains("orange"), "Second added row is orange car");
         System.out.println("Assertion passed - car is orange");
+
+        selectConnection.close();
+        selectStatement.close();
     }
 
     public void deleteFromTable() throws SQLException {
@@ -268,6 +271,13 @@ public class DataBaseManipulations {
         }
         assertEquals(allRows.size(), 1, "Table contains only one row");
         System.out.println("Table contains only one row");
+
+        if (selectConnection != null) {
+            selectConnection.close();
+        }
+        if (selectStatement != null) {
+            selectStatement.close();
+        }
     }
 
     public void dropTable() throws SQLException {

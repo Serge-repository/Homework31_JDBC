@@ -9,7 +9,8 @@ import static org.testng.Assert.*;
 
 public class DataBaseManipulations {
     static String user = "root";
-    static String password = "Ds8845";
+    static String password = "******";
+    //password deleted in order to strenghten security
 
     public void createDatabase() {
         String databaseURL = "jdbc:mysql://localhost:3306/";
@@ -77,7 +78,7 @@ public class DataBaseManipulations {
     }
 
     public void insertIntoTable() {
-        String insertDatabaseLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=Ds8845&serverTimezone=UTC";
+        String insertDatabaseLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=******&serverTimezone=UTC";
         Connection connectionForNewRow = null;
         Statement statementForNewRow = null;
         try {
@@ -114,7 +115,7 @@ public class DataBaseManipulations {
     }
 
     public void assertAddedInformation() throws SQLException {
-        String selectLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=Ds8845&serverTimezone=UTC";
+        String selectLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=******&serverTimezone=UTC";
         Connection selectConnection;
         Statement selectStatement = null;
         ResultSet resultSet = null;
@@ -147,7 +148,7 @@ public class DataBaseManipulations {
     }
 
     public void updateTable() throws SQLException {
-        String insertDatabaseLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=Ds8845&serverTimezone=UTC";
+        String insertDatabaseLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=******&serverTimezone=UTC";
         Connection connectionForNewRow = null;
         Statement statementForNewRow = null;
         try {
@@ -177,7 +178,7 @@ public class DataBaseManipulations {
     }
 
     public void assertAddedCarIsOrange() throws SQLException {
-        String selectLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=Ds8845&serverTimezone=UTC";
+        String selectLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=******&serverTimezone=UTC";
         Connection selectConnection;
         Statement selectStatement = null;
         ResultSet resultSet = null;
@@ -210,7 +211,7 @@ public class DataBaseManipulations {
     }
 
     public void deleteFromTable() throws SQLException {
-        String insertDatabaseLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=Ds8845&serverTimezone=UTC";
+        String insertDatabaseLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=******&serverTimezone=UTC";
         Connection connectionForNewRow = null;
         Statement statementForNewRow = null;
         try {
@@ -238,7 +239,7 @@ public class DataBaseManipulations {
     }
 
     public void assertRowDeleted() throws SQLException {
-        String selectLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=Ds8845&serverTimezone=UTC";
+        String selectLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=******&serverTimezone=UTC";
         Connection selectConnection;
         Statement selectStatement = null;
         ResultSet resultSet = null;
@@ -270,7 +271,7 @@ public class DataBaseManipulations {
     }
 
     public void dropTable() throws SQLException {
-        String dropTableLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=Ds8845&serverTimezone=UTC";
+        String dropTableLink = "jdbc:mysql://localhost:3306/VEHICLES?user=root&password=******&serverTimezone=UTC";
         Connection connectionForDeleteTable = null;
         Statement statementForTableDelete = null;
         try {

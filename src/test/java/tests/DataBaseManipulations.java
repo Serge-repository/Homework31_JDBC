@@ -372,14 +372,14 @@ public class DataBaseManipulations {
     public static void main(String[] args) throws SQLException {
         DataBaseManipulations dataBaseManipulations = new DataBaseManipulations();
         dataBaseManipulations.createDatabase();
-//        dataBaseManipulations.createTable();
-//        dataBaseManipulations.insertIntoTable();
-//        dataBaseManipulations.assertAddedInformation();
-//        dataBaseManipulations.updateTable();
-//        dataBaseManipulations.assertAddedCarIsOrange();
-//        dataBaseManipulations.deleteFromTable();
-//        dataBaseManipulations.assertRowDeleted();
-//        dataBaseManipulations.dropTable();
-//        dataBaseManipulations.dropDatabase();
+        dataBaseManipulations.createTable();
+        dataBaseManipulations.insertIntoTable();
+        dataBaseManipulations.assertAddedInformation();
+        dataBaseManipulations.updateTable();
+        dataBaseManipulations.assertAddedCarIsOrange();
+        dataBaseManipulations.deleteFromTable();
+        dataBaseManipulations.assertRowDeleted();
+        dataBaseManipulations.dropTable();
+        dataBaseManipulations.dropDatabase();
     }
 }

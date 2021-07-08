@@ -8,8 +8,10 @@ import java.util.Arrays;
 
 import static org.testng.Assert.*;
 
+//Запустить windows service
+
 public class TestExecutor extends TestBasis {
-    @Test
+    @Test(priority = 1)
     public void createDatabase() {
         generalPage.setupConnection("", user, password);
         generalPage.setupAndExecuteStatement("CREATE DATABASE VEHICLES");
@@ -17,7 +19,7 @@ public class TestExecutor extends TestBasis {
         generalPage.closeStatementAndConnection();
     }
 
-    @Test
+    @Test(dependsOnMethods = "createDatabase")
     public void createTable() {
         generalPage.setupConnection("VEHICLES", user, password);
         String sqlRequestCreateTable = "CREATE TABLE CARS " +
@@ -31,7 +33,7 @@ public class TestExecutor extends TestBasis {
         generalPage.closeStatementAndConnection();
     }
 
-    @Test
+    @Test(dependsOnMethods = "createTable")
     public void insertIntoTable() {
         generalPage.setupConnection("VEHICLES", user, password);
         String sqlInsertStatement = "INSERT INTO `vehicles`.`cars` (`id`, `speed`, `colour`, `year`) \n" +
@@ -41,7 +43,7 @@ public class TestExecutor extends TestBasis {
         generalPage.closeStatementAndConnection();
     }
 
-    @Test
+    @Test(dependsOnMethods = "insertIntoTable")
     public void assertAddedInformation() throws SQLException {
         generalPage.setupConnection("VEHICLES", user, password);
         String sqlSearchAllStatements = "select * from vehicles.cars";
@@ -52,7 +54,7 @@ public class TestExecutor extends TestBasis {
         generalPage.closeStatementAndConnection();
     }
 
-    @Test
+    @Test(dependsOnMethods = "assertAddedInformation")
     public void updateTable() {
         generalPage.setupConnection("VEHICLES", user, password);
         String sqlUpdateStatement = "UPDATE `vehicles`.`cars` " +
@@ -74,7 +76,7 @@ public class TestExecutor extends TestBasis {
         generalPage.closeStatementAndConnection();
     }
 
-    @Test
+    @Test(dependsOnMethods = "assertAddedCarIsOrange")
     public void deleteFromTable() {
         generalPage.setupConnection("VEHICLES", user, password);
         String sqlDeleteStatement = "DELETE FROM `vehicles`.`cars` WHERE (`id` = '2')";
@@ -83,7 +85,7 @@ public class TestExecutor extends TestBasis {
         generalPage.closeStatementAndConnection();
     }
 
-    @Test()
+    @Test(dependsOnMethods = "deleteFromTable")
     public void assertRowDeleted() throws SQLException {
         generalPage.setupConnection("VEHICLES", user, password);
         String sqlSearchAllStatements = "select * from vehicles.cars";
@@ -93,7 +95,7 @@ public class TestExecutor extends TestBasis {
         generalPage.closeStatementAndConnection();
     }
 
-    @Test
+    @Test(dependsOnMethods = "assertRowDeleted")
     public void dropTable() throws SQLException {
         generalPage.setupConnection("VEHICLES", user, password);
         String sqlDeleteTableStatement = "DROP TABLE `vehicles`.`cars`";
@@ -102,7 +104,7 @@ public class TestExecutor extends TestBasis {
         generalPage.closeStatementAndConnection();
     }
 
-    @Test
+    @Test(dependsOnMethods = "dropTable")
     public void dropDatabase() throws SQLException {
         generalPage.setupConnection("", user, password);
         String sqlDeleteTableStatement = "DROP DATABASE `vehicles`";
